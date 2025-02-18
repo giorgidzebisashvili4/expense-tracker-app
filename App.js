@@ -8,6 +8,7 @@ import RecentExpenses from "./screens/RecentExpenses";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { GlobalStyles } from "./constant/styles";
 import { Ionicons } from "@expo/vector-icons";
+import IconButton from "./ui/IconButton";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -21,6 +22,14 @@ export default function App() {
           tabBarStyle: { backgroundColor: GlobalStyles.colors.primary500 },
           tabBarActiveTintColor: GlobalStyles.colors.accent500,
           tabBarActiveBackgroundColor: GlobalStyles.colors.primary700,
+          headerRight: ({ tintColor }) => (
+            <IconButton
+              icon="add"
+              size={24}
+              color={tintColor}
+              onPress={() => {}}
+            />
+          ),
         }}
       >
         <BottomTabs.Screen
