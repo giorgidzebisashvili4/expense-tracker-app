@@ -1,6 +1,6 @@
 import { View, Text, TextInput } from "react-native";
 
-function input({ label, textInputConfig }) {
+function Input({ label, textInputConfig }) {
   return (
     <View>
       <Text>{label}</Text>
@@ -9,4 +9,4 @@ function input({ label, textInputConfig }) {
   );
 }
 
-export default input;
+export default Input;
