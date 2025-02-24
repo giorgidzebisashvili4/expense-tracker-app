@@ -80,13 +80,17 @@ const ExpensesContext = createContext({
 function expensesReducer(state, action) {
   switch (action.type) {
     case "ADD":
-      return [action.payload, ...state];
+      return [{ id: Math.random().toString(), ...action.payload }, ...state];
     case "UPDATE":
       const updatedExpenseIndex = state.findIndex(
         (expense) => expense.id === action.payload.id
       );
       const updatedExpenses = [...state];
-      updatedExpenses[updatedExpenseIndex] = action.payload.data;
+      updatedExpenses[updatedExpenseIndex] = {
+        id: action.payload.id,
+        ...action.payload.data,
+      };
+
       return updatedExpenses;
     case "DELETE":
       return state.filter((expense) => expense.id !== action.payload);
